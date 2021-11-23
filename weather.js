@@ -1,6 +1,16 @@
 #!/usr/bin/ecv node
 import { getArgs } from './helpers/args.js';
 import { printError, printSuccess, printHelp } from './services/log.service.js';
+import { saveKeyValue } from './services/storage.service.js';
+
+const saveToken = async (token) => {
+  try {
+    await saveKeyValue('token', token);
+    printSuccess('Token is saved');
+  } catch (e) {
+    printError(e.message);
+  }
+};
 
 const initCLI = () => {
   const args = getArgs(process.argv);
@@ -9,10 +19,9 @@ const initCLI = () => {
     printHelp();
   }
   if (args.s) {
-    printSuccess('City');
   }
   if (args.t) {
-    console.log('Token');
+    return saveToken(args.t);
   }
   // Print Weather
 };
