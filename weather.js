@@ -11,10 +11,24 @@ const saveToken = async (token) => {
   }
   try {
     await saveKeyValue(TOKEN_DICTIONARY.token, token);
-    console.log(token)
     printSuccess('Token is saved');
   } catch (e) {
     printError(e.message);
+  }
+};
+
+const getForecast = async () => {
+  try {
+    const weather = await getWeather(process.env.CITY);
+    console.log(weather);
+  } catch (error) {
+    if (error?.response?.status === 404) {
+      printError('The city is specified incorrectly');
+    } else if (error?.response?.status === 401) {
+      printError('The token is specified incorrectly');
+    } else {
+      printError(error.message);
+    }
   }
 };
 
@@ -30,8 +44,7 @@ const initCLI = () => {
     return saveToken(args.t);
   }
 
-  getWeather('london');
-  // Print Weather
+  getForecast();
 };
 
 initCLI();
