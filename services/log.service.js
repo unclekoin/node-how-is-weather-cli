@@ -15,11 +15,21 @@ const printHelp = () => {
   console.log(
     dedent`${bgMagenta(' HELP ')}
       without parameters.....for printing weather
-      -s [CITY]..............for setting city
+      -c [CITY]..............for setting city
       -h.....................for printing help
       -t [API_KEY]...........for setting token
+      OpenWeather: https://openweathermap.org/
     `
   );
 };
 
-export { printError, printSuccess, printHelp };
+const printWeather = (res, icon) => {
+  console.log(dedent`${bgMagenta(' WEATHER ')} ${res.name} ${new Date(Date.now()).toLocaleDateString()}
+  ${icon} ${res.weather[0].description}
+    temperature: ${Math.round(res.main.temp)}°C
+    humidity: ${res.main.humidity}%
+    wind speed: ${res.wind.speed} 
+    `);
+};
+
+export { printError, printSuccess, printHelp, printWeather };
