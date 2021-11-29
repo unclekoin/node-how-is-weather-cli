@@ -18,7 +18,7 @@
   "author": "Pavel Koryakin",
   "repository": {
     "type": "git",
-    "url":
+    "url": "https://github.com/unclekoin/node-how-is-weather-cli"
   },
   "license": "ISC",
   "dependencies": {

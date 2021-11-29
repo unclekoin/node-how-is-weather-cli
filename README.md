@@ -1,4 +1,5 @@
-# Weather CLI
+# How is Weather?
+Node.js, CLI app
 
 * [OpenWeather API](https://openweathermap.org/api)
 * [yargs](https://www.npmjs.com/package/yargs)
