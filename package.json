@@ -1,5 +1,5 @@
 {
-  "name": "weather-cli",
+  "name": "how-is-weather",
   "version": "1.0.0",
   "description": "CLI for getting weather",
   "main": "weather.js",
@@ -16,6 +16,10 @@
     "weather"
   ],
   "author": "Pavel Koryakin",
+  "repository": {
+    "type": "git",
+    "url":
+  },
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
